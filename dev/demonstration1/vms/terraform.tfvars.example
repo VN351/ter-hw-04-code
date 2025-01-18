@@ -1,0 +1,2 @@
+ssh_public_key      = "/home/vlad/.ssh/id_id_ed25519.pub"
+deletion_protection = false

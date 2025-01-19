@@ -12,7 +12,6 @@ module "vpc_prod" {
   subnets = var.vpc_prod_subnets
 }
 
-
 resource "random_string" "unique_id" {
   length  = 8
   upper   = false
@@ -30,8 +29,6 @@ module "s3" {
   }
   max_size = 1073741824
 }
-
-
 
 module "vms" {
   source = "./modules/vm"

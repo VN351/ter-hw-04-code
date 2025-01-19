@@ -12,7 +12,6 @@ module "vpc_prod" {
   subnets = var.vpc_prod_subnets
 }
 
-
 module "vms" {
   source = "./modules/vm"
 

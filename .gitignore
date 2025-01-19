@@ -14,4 +14,4 @@ personal.auto.tfvars
 
 #ansible
 *.cfg
-modules/s3
+

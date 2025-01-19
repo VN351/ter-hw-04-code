@@ -2,19 +2,16 @@
 
 module "vpc_dev" {
   source       = "./modules/vpc"
-  network_name = "develop-network"
-  zone         = "ru-central1-a"
-  v4_cidr_block = "10.0.1.0/24"
+  network_name = var.net_name
+  zone         = var.default_zone
+  v4_cidr_block = var.default_cidr
+
 }
 
 module "vpc_prod" {
   source   = "./modules/vpc-prod"
-  env_name = "production"
-  subnets = [
-    { zone = "ru-central1-a", cidr = "10.0.1.0/24" },
-    { zone = "ru-central1-b", cidr = "10.0.2.0/24" },
-    { zone = "ru-central1-d", cidr = "10.0.3.0/24" },
-  ]
+  env_name = var.vpc_prod_env_name
+  subnets = var.vpc_prod_subnets
 }
 
 module "marketing-vm" {

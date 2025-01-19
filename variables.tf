@@ -10,22 +10,42 @@ variable "folder_id" {
   description = "https://cloud.yandex.ru/docs/resource-manager/operations/folder/get-id"
 }
 
+variable "net_name" {
+  description = "Название сети"
+  type        = string
+  default     = "develop-network"
+}
+
 variable "default_zone" {
   type        = string
   default     = "ru-central1-a"
   description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
 }
+
 variable "default_cidr" {
-  type        = list(string)
-  default     = ["10.0.1.0/24"]
-  description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
+  description = "CIDR блок по умолчанию для подсети"
+  type        = string
+  default     = "10.0.1.0/24"
 }
 
-variable "security_group_ids" {
- description = "Список ID групп безопасности"
-  type        = list(string)
-  default     = []
-} 
+variable "vpc_prod_env_name" {
+  description = "Название сети"
+  type        = string
+  default     = "production"
+}
+
+variable "vpc_prod_subnets" {
+  description = "Список подсетей с указанием зоны и CIDR блока"
+  type = list(object({
+    zone = string
+    cidr = string
+  }))
+  default = [
+    { zone = "ru-central1-a", cidr = "10.0.1.0/24" },
+    { zone = "ru-central1-b", cidr = "10.0.2.0/24" },
+    { zone = "ru-central1-d", cidr = "10.0.3.0/24" },
+  ]
+}
 
 variable "username" {
   type = string

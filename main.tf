@@ -12,6 +12,26 @@ module "vpc_prod" {
   subnets = var.vpc_prod_subnets
 }
 
+
+resource "random_string" "unique_id" {
+  length  = 8
+  upper   = false
+  lower   = true
+  numeric = true
+  special = false
+}
+
+module "s3" {
+  source = "./modules/s3"
+
+  bucket_name = "simple-bucket-${random_string.unique_id.result}"
+  versioning = {
+    enabled = true
+  }
+}
+
+
+/*
 module "vms" {
   source = "./modules/vm"
 
@@ -44,4 +64,4 @@ module "mysql_db" {
   db_user = var.db_managed_user
 }
 
-
+*/

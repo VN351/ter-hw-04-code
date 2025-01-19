@@ -32,7 +32,7 @@ module "s3" {
 }
 
 
-/*
+
 module "vms" {
   source = "./modules/vm"
 
@@ -65,4 +65,3 @@ module "mysql_db" {
   db_user = var.db_managed_user
 }
 
-*/

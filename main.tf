@@ -28,6 +28,7 @@ module "s3" {
   versioning = {
     enabled = true
   }
+  max_size = 1073741824
 }
 
 

@@ -28,10 +28,6 @@ provider "aws" {
   secret_key = "bar"
 }
 
-resource "aws_s3_bucket" "disabled" {
-  count  = 0
-  bucket = "hello-world"
-}
 provider "yandex" {
   #token     = var.token
   cloud_id  = var.cloud_id

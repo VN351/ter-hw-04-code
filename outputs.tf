@@ -1,8 +1,10 @@
-output "out" {
-
-    value=concat(module.analytics-vm.external_ip_address, module.marketing-vm.external_ip_address)
-}
-
+ output "out" {
+     value = [
+       module.vms["marketing"].external_ip_address,
+       module.vms["analytics"].external_ip_address
+     ]
+   }
+   
 output "dev_network_id" {
   description = "ID сети для development окружения"
   value       = module.vpc_dev.network_id

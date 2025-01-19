@@ -1,5 +1,3 @@
-# modules/vpc/outputs.tf
-
 output "network_id" {
   description = "Идентификатор созданной VPC сети"
   value       = yandex_vpc_network.prod.id

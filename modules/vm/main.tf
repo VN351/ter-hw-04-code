@@ -1,22 +1,3 @@
-terraform {
-  required_providers {
-    yandex = {
-      source = "yandex-cloud/yandex"
-    }
-  }
-  required_version = ">=1.8.4"  ### some test
-}
-
-locals {
-  labels = length(keys(var.labels)) >0 ? var.labels: {
-    "env"=var.env_name
-    "project"="undefined"
-  }
-}
-
-#!
-
-
 data "yandex_compute_image" "my_image" {
   family = var.image_family
 }
@@ -71,5 +52,7 @@ resource "yandex_compute_instance" "vm" {
     ]
   }
 }
+
+
 
 

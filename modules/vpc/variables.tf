@@ -12,5 +12,3 @@ variable "v4_cidr_block" {
   description = "CIDR блок подсети IPv4."
   type        = string
 }
-
-

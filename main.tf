@@ -12,6 +12,7 @@ module "vpc_prod" {
   subnets = var.vpc_prod_subnets
 }
 
+
 module "vms" {
   source = "./modules/vm"
 
@@ -28,3 +29,20 @@ module "vms" {
   labels         = each.value.labels
   metadata       = each.value.metadata
 }
+
+module "mysql" {
+  source = "./modules/mysql"
+  name = var.cluster_name
+  network_id = module.vpc_dev.network_id
+  subnet_id = module.vpc_dev.subnet_id
+  HA = true  
+}
+
+module "mysql_db" {
+  source = "./modules/user_db"
+  cluster_id = module.mysql.yandex_mdb_mysql_cluster.id
+  db_name = var.db_managed_name
+  db_user = var.db_managed_user
+}
+
+

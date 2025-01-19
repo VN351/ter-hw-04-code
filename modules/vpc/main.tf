@@ -8,4 +8,3 @@ resource "yandex_vpc_subnet" "dev-sub" {
   network_id     = yandex_vpc_network.dev.id
   v4_cidr_blocks = [var.v4_cidr_block]
 }
-

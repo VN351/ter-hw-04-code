@@ -66,3 +66,17 @@ variable "public_key" {
   default = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC8bDGbiyUNa2k07/T9jlaRKD1gMcMT9/4wqljOvFJOD nevzorovvlad@mail.ru"
 }
 
+variable "cluster_name" {
+  type = string
+  default = "example"
+}
+
+variable "db_managed_name" {
+  type = string
+  default = "test"
+}
+
+variable "db_managed_user" {
+  type = string
+  default = "app"
+}

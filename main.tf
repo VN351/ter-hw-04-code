@@ -29,7 +29,7 @@ module "s3" {
   }
   max_size = var.max_size
 }
-/*
+
 module "vms" {
   source = "./modules/vm"
 
@@ -61,4 +61,4 @@ module "mysql_db" {
   db_name = var.db_managed_name
   db_user = var.db_managed_user
 }
-*/
+

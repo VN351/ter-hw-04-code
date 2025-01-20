@@ -21,15 +21,15 @@ resource "random_string" "unique_id" {
 }
 
 module "s3" {
-  source = "./modules/s3"
+  source = "git::https://github.com/terraform-yc-modules/terraform-yc-s3.git?ref=master"
 
   bucket_name = "simple-bucket-${random_string.unique_id.result}"
   versioning = {
     enabled = true
   }
-  max_size = 1073741824
+  #max_size = 1073741824
 }
-
+/*
 module "vms" {
   source = "./modules/vm"
 
@@ -61,4 +61,4 @@ module "mysql_db" {
   db_name = var.db_managed_name
   db_user = var.db_managed_user
 }
-
+*/

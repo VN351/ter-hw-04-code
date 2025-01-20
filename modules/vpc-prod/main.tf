@@ -4,7 +4,6 @@ resource "yandex_vpc_network" "prod" {
 
 resource "yandex_vpc_subnet" "prod-sub" {
   for_each = { for idx, subnet in var.subnets : "${var.env_name}-subnet-${idx}" => subnet }
-
   name           = "${var.env_name}-subnet-${each.key}"
   zone           = each.value.zone
   network_id     = yandex_vpc_network.prod.id

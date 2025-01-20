@@ -1,5 +1,3 @@
-# variables.tf
-
 variable "vault_address" {
   description = "Адрес Vault сервера"
   type        = string

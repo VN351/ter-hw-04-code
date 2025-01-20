@@ -80,7 +80,8 @@ variable "db_managed_user" {
   type = string
   default = "app"
 }
-/*
+
 variable "max_size" {
   type = string
-}*/
+  default = "1073741824"
+}

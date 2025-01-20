@@ -27,7 +27,7 @@ module "s3" {
   versioning = {
     enabled = true
   }
-  #max_size = 1073741824
+  max_size = var.max_size
 }
 /*
 module "vms" {
